@@ -485,6 +485,11 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
     if ([_animations count] == 0) {
         [_animationTimer invalidate];
         _animationTimer = nil;
+      
+        //增加动画完成的回调
+        if (_animationFinish) {
+          _animationFinish();
+        }
     }
 }
 
